@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Earthquakes 1973-2023</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>
+  </head>
+  <body>
+    <h2>A Visualisation of Major Global Earthquakes 1973-2023</h2>
+    <div id="selection-controls">
+      <div id="region-switch"></div>
+      <div id="plate-switch"></div>
+      <div id="continent-select"></div>
+      <div id="sub-continent-select"></div>
+      <div id="mag-switch"></div>
+      <div id="year-switch"></div>
+      <div id="city-switch"></div>
+      <div id="play-through"></div>
+    </div>
+    <svg width="1220" height="800"></svg>
+    <div id="radial-controls">
+      <div id="radial-button"></div>
+      <div id="close-radial-button"></div>
+      <div id="radial-scale-checkbox"></div>
+    </div>
+    <div id="back-button"></div>
+    <div id="reset-zoom-button"></div>
+    <div id="tooltip"></div>
+    <script src="./js/index.js" type="module"></script>
+  </body>
+</html>

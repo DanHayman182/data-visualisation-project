@@ -1,0 +1,495 @@
+body {
+  font-family: sans-serif;
+  background: #fafcff;
+}
+
+h2 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 290px;
+  text-anchor: middle;
+  user-select: none;
+}
+
+
+/* Prevent user from interacting with text as it interferes with zoom */
+text, label {
+  user-select: none;
+}
+
+/* Map views */
+.sphere {
+  fill: none;
+  stroke: black;
+  stroke-width: 0.03em;
+}
+
+.graticule {
+  fill: none;
+  stroke: rgb(211, 211, 211);
+  stroke-width: 0.03em;
+}
+
+.distance-circle path {
+  fill: none;
+  stroke: gray;
+  stroke-width: 0.1em;
+}
+
+.distance-circle text {
+  text-anchor: middle;
+  font-size: 11pt;
+}
+
+.bounding-rect {
+  fill: #fafcff;
+}
+
+.country {
+  fill: rgb(211, 211, 211);
+  stroke: white;
+  stroke-width: 0.03em;
+}
+
+.continent {
+  fill: none;
+  stroke: black;
+  stroke-width: 0.05em;
+}
+
+.plates {
+  fill: none;
+  stroke: grey;
+  stroke-width: 0.1em;
+}
+
+.city {
+  fill: white;
+  stroke: black;
+  stroke-width: 0.05em;
+  cursor: pointer;
+}
+
+.quake {
+  opacity: 0.7;
+}
+
+.quake-count-label {
+  cursor: default;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.map-zoom-label {
+  text-anchor: end;
+}
+
+
+/* Pie charts */
+.pie-chart {
+  stroke: black;
+  stroke-width: 1px;
+  pointer-events: all;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.pie-label {
+  text-anchor: middle;
+  font-size: 11pt;
+}
+
+
+/* Histograms */
+.axis-label {
+  text-anchor: middle;
+  cursor: default;
+}
+
+.vertical-y-axis text {
+  transform: translate(-12.5px, 10px)rotate(-90deg);
+  text-anchor: end;
+}
+
+
+/* Radial stacked bar charts */
+.radial {
+  text-anchor: middle;
+}
+
+.radial.x-axis {
+  font-size: 8pt;
+}
+
+.radial.axis-line {
+  stroke: black;
+}
+
+.radial.ticks {
+  stroke: gray;
+  stroke-opacity: 0.5;
+  fill: none;
+}
+
+.radial.y-axis {
+  pointer-events: none;
+}
+
+.radial path {
+  stroke: black;
+  stroke-width: 0;
+}
+
+
+/* Tooltip */
+#tooltip {
+  position: absolute;
+  display: none;
+  background: #fff;
+  box-shadow: 3px 3px 3px 0 rgb(92 92 92 / 0.5);
+  border: 1px solid #ddd;
+  font-size: 12px;
+  padding: 8px;
+  color: black;
+  text-align: center;
+  border-radius: 15px;
+}
+
+#tooltip p {
+  margin: 2px;
+}
+
+#tooltip table {
+  margin-top: 8px;
+  width: 100%;
+}
+
+#tooltip tr td:first-child {
+  padding-right: 10px;
+}
+
+#tooltip tr th:first-child {
+  padding-right: 10px;
+}
+
+.tooltip-title {
+  font-size: 14px;
+}
+
+.tooltip-sub-title {
+  padding-top: 8px;
+}
+
+
+/* Brush selections */
+rect.selection {
+  fill: none;
+  stroke: grey;
+  stroke-width: 0.1em;
+}
+
+.brush-label {
+  font-size: 9pt;
+}
+
+
+/* Checkboxes */
+.switch {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 60px;
+  height: 34px;
+  padding-top: 3px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  margin-top: 3px;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+input:disabled + .slider {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
+
+.checkbox-label {
+  margin: 10px;
+  padding-top: 2px;
+  cursor: pointer;
+}
+
+.checkbox-label.disabled {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
+
+
+/* Colour legend */
+.colour-legend {
+  cursor: default;
+  pointer-events: none;
+}
+
+.legend-box {
+  fill: white;
+  opacity: 0.7;
+  stroke: black;
+  stroke-width: 0.1em;
+  stroke-opacity: 1;
+}
+
+.legend circle {
+  stroke: #333;
+  stroke-opacity: 0.5;
+}
+
+.legend-label {
+  font-family: sans-serif;
+  font-size: 1em;
+  fill: #635F5D;
+  dominant-baseline: central;
+}
+
+.bar-label {
+  color: black;
+  font-size: 0.9em;
+  text-anchor: middle;
+}
+
+
+/* Controls */
+#selection-controls {
+  display: grid;
+  margin: 5px;
+  gap: 5px;
+  width: 1250px;
+  grid-template-columns: 1fr 1.4fr 1fr 1fr;
+  grid-template-areas:
+    "div1 div3 div5 div7"
+    "div2 div4 div6 div8";
+}
+
+#selection-controls div {
+  position: relative;
+  display: flex;
+  height: 40px;
+}
+
+#region-switch {
+  grid-area: div1;
+  height: 40px;
+}
+
+#plate-switch {
+  grid-area: div2;
+  height: 40px;
+}
+
+#continent-select {
+  justify-content: flex-end;
+  grid-area: div3;
+}
+
+#sub-continent-select {
+  justify-content: flex-end;
+  grid-area: div4;
+}
+
+#mag-switch {
+  grid-area: div5;
+  height: 40px;
+}
+
+#year-switch {
+  grid-area: div6;
+  height: 40px;
+}
+
+#city-switch {
+  grid-area: div7;
+  height: 40px;
+}
+
+#play-through {
+  grid-area: div8;
+  height: 40px;
+}
+
+#radial-button {
+  position: absolute;
+  left: 30px;
+  top: 750px;
+}
+
+#close-radial-button {
+  position: absolute;
+  left: 1000px;
+  top: 40px;
+}
+
+#radial-scale-checkbox {
+  position: absolute;
+  display: flex;
+  left: 100px;
+  top: 645px;
+  height: 40px;
+}
+
+#back-button {
+  position: absolute;
+  left: 1020px;
+  top: 155px;
+}
+
+#reset-zoom-button {
+  position: absolute;
+  left: 25px;
+  top: 155px;
+}
+
+
+/* Drop-down menus */
+select {
+  padding: 0 15px;
+  outline: 0;
+  color: black;
+  border: 1px solid #efefef;
+  appearance: none;
+  width: 175px;
+  height: 40px;
+  display: inline;
+  cursor: pointer;
+  margin-right: 25px;
+}
+
+select:disabled {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
+
+.select-arrow {
+  position: absolute;
+  color: black;
+  top: 17px;
+  right: 40px;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 8px 5px 0 5px;
+  border-color: black transparent transparent transparent;
+}
+
+.select-arrow.disabled {
+  opacity: 0.2;
+}
+
+.dropdown-label {
+  display: inline-flex;
+  padding-right: 10px;
+  padding-top: 11px;
+  vertical-align: middle;
+  text-anchor: start;
+  dominant-baseline: middle;
+}
+
+.dropdown-label.disabled {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
+
+/* Buttons */
+button {
+  align-items: center;
+  background-color: #F0F0F1;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  margin: 0;
+  padding: 10px 15px 10px 15px;
+  position: relative;
+  transition: all 250ms;
+  user-select: none;
+  vertical-align: baseline;
+}
+
+button:hover:not([disabled]),
+button:focus:not([disabled]) {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+button:hover:not([disabled]) {
+  transform: translateY(-1px);
+}
+
+button:active:not([disabled]) {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
+
+button.play-through {
+  width: 150px;
+}
+
+label.play-through {
+  margin: 10px;
+  padding-top: 2px;
+}
+
+label.play-through.disabled {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
